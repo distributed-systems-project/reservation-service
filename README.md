@@ -5,4 +5,6 @@ Serwisy" project. To run application you need MySQL instance available with conf
 To start an application simply type:
 `mvn spring-boot:run`
 
+There are also working API examples in `api.json`. You can use them with Postman.
+
 Enjoy!
