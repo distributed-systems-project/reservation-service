@@ -11,7 +11,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "localhost:8080/reservations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reservations"
+					]
 				}
 			},
 			"response": []
@@ -19,10 +26,33 @@
 		{
 			"name": "add",
 			"request": {
-				"method": "GET",
-				"header": [],
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customerName\": \"Ireneusz Wydmuch\",\n    \"customerAddress\": \"z Pogwizdowa\",\n    \"customerPhoneAddress\": \"321654987\",\n    \"placedAtDate\": \"2012-04-23T18:25:43.511Z\",\n    \"startDate\": \"2012-05-23T18:25:43.511Z\",\n    \"endDate\": \"2012-06-23T18:25:43.511Z\",\n    \"roomNumber\": 6\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": ""
+					"raw": "localhost:8080/reservations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reservations"
+					]
 				}
 			},
 			"response": []
@@ -33,7 +63,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "localhost:8080/reservations/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reservations",
+						"1"
+					]
 				}
 			},
 			"response": []

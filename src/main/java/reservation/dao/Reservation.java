@@ -2,9 +2,7 @@ package reservation.dao;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -14,9 +12,8 @@ public class Reservation {
     @GeneratedValue
     private Long id;
 
-    private String customerName;
-    private String customerAddress;
-    private String customerPhoneAddress;
+    @ManyToOne
+    private Customer customer;
 
     private Date placedAtDate;
     private Date startDate;
