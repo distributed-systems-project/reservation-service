@@ -1,7 +1,9 @@
 package pl.edu.agh.distributedsystems.reservationservice;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +31,8 @@ public class ReservationController {
     BuildingClient buildingClient;
 
     @Data
+    @NoArgsConstructor
+    @RequiredArgsConstructor
     public static class ReservationLite {
         private Long id;
         @NonNull private Long customerId;
@@ -40,7 +44,7 @@ public class ReservationController {
     }
 
     @PostMapping
-    public ResponseEntity<Reservation> createReservation(@Valid @RequestBody ReservationLite reservationLite) {
+    public ResponseEntity<?> createReservation(@Valid @RequestBody ReservationLite reservationLite) {
         try {
             buildingClient.findByHotel(reservationLite.getHotelId().longValue());
 
@@ -66,7 +70,7 @@ public class ReservationController {
             reservationRepository.save(reservation);
             return ResponseEntity.ok(reservation);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body("{\"message\": \"" + e.getMessage() + "\"}");
         }
     }
 

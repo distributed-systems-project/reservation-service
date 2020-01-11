@@ -23,4 +23,6 @@ public class Customer {
     @NonNull private String phoneNumber;
     @NonNull private String address;
     @NonNull private String pesel;
+    @NonNull private String login;
+    @NonNull private String password;
 }

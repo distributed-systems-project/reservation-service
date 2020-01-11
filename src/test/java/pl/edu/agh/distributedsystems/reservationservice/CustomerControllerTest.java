@@ -33,7 +33,7 @@ public class CustomerControllerTest {
     @Test
     public void testAddCustomer() {
         Customer customer =
-                new Customer("Krzysiu", "Kowalski", "321654987", "Zadupie dolne", "123321");
+                new Customer("Krzysiu", "Kowalski", "321654987", "Zadupie dolne", "123321", "login", "pass");
         HttpEntity<Customer> httpEntity = new HttpEntity<>(customer);
         ResponseEntity<Customer> responseEntity =
                 restTemplate.exchange(getURL() + "/customers", HttpMethod.POST, httpEntity, Customer.class);
@@ -50,7 +50,7 @@ public class CustomerControllerTest {
     @DependsOn("testAddCustomer")
     public void testGetCustomer() {
         Customer newCustomer =
-                new Customer("David", "Bowie", "543345543", "Gdzies", "64456654");
+                new Customer("David", "Bowie", "543345543", "Gdzies", "64456654", "login", "pass");
         Customer response =
                 restTemplate.exchange(getURL() + "/customers", HttpMethod.POST, new HttpEntity<>(newCustomer), Customer.class)
                     .getBody();
@@ -63,9 +63,9 @@ public class CustomerControllerTest {
     @Test
     public void getAllCustomers() {
         Customer customer1 =
-                new Customer("Krzysiu", "Kowalski", "321654987", "Zadupie dolne", "123321");
+                new Customer("Krzysiu", "Kowalski", "321654987", "Zadupie dolne", "123321", "login", "pass");
         Customer customer2 =
-                new Customer("David", "Bowie", "543345543", "Gdzies", "64456654");
+                new Customer("David", "Bowie", "543345543", "Gdzies", "64456654", "login", "pass");
         restTemplate.postForObject(getURL() + "/customers", customer1, Customer.class);
         restTemplate.postForObject(getURL() + "/customers", customer2, Customer.class);
 

@@ -44,7 +44,7 @@ public class ReservationControllerTest {
     @Test
     public void testAddSingleReservation() {
         Customer customer =
-                new Customer("Krzysiu", "Kowalski", "321654987", "Zadupie dolne", "123321");
+                new Customer("Krzysiu", "Kowalski", "321654987", "Zadupie dolne", "123321", "login", "pass");
         customer = restTemplate.postForObject(getURL() + "/customers", customer, Customer.class);
         when(buildingClient.findByHotel(1L)).thenReturn(new Building("ABC", 10));
         ReservationLite reservation = new ReservationLite(
